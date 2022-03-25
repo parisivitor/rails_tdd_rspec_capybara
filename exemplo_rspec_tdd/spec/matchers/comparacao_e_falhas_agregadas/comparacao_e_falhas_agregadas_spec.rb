@@ -20,11 +20,20 @@ describe 'Matchers de comparação' do
     expect(2).to be_between(2,7).inclusive
     expect(5).to be_between(2,7).inclusive
   end
+
+  it 'be_between exclusive', :aggregate_failures  do
+    expect(5).to be_between(2,7).inclusive
+    expect(1).to be_between(2,7).inclusive
+    expect(8).to be_between(2,7).inclusive
+  end
+
   it 'be_between exclusive' do
     expect(5).to be_between(2,7).exclusive
     expect(2).not_to be_between(2,7).exclusive
     expect(7).not_to be_between(2,7).exclusive
   end
+
+
 
   it 'matche' do
     expect('fulano@.com.br').to match(/..@../)
